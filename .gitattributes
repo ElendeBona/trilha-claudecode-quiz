@@ -1,0 +1,8 @@
+# Normaliza quebras de linha: LF no repositório (Vercel/CI rodam em Linux).
+* text=auto eol=lf
+
+# Binários — não normalizar.
+*.ico binary
+*.png binary
+*.jpg binary
+*.svg text

@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* ---------- Design tokens (fusão @elen_de_bona × Claude Code) ---------- */
+@theme {
+  --color-cream: #f0eee6;
+  --color-paper: #faf9f5;
+  --color-terracotta: #d97757;
+  --color-terracotta-deep: #c05f3f;
+  --color-espresso: #262220;
+  --color-espresso-soft: #5b534d;
+  --color-sage: #7a8450;
+  --color-rust: #bc4b2b;
+  --color-umber: #8a5a3c;
+  --color-line: #e4dfd3;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-hanken), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Foco visível e acessível (requisito não-funcional) */
+:focus-visible {
+  outline: 3px solid var(--color-terracotta);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Animações do Claudinho ✱ ---------- */
+@keyframes breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(6deg); }
+}
+@keyframes vibrate {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(1.5px, -1px) rotate(-4deg); }
+  50% { transform: translate(-1px, 1.5px) rotate(0deg); }
+  75% { transform: translate(1px, 1px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes bounce-once {
+  0% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(1.18) rotate(-8deg); }
+  60% { transform: scale(0.94) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes droop {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(0.92) rotate(-4deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-breathe { animation: breathe 3.6s ease-in-out infinite; transform-origin: center; }
+.animate-vibrate { animation: vibrate 0.18s linear infinite; transform-origin: center; }
+.animate-bounce-once { animation: bounce-once 0.6s ease; transform-origin: center; }
+.animate-droop { animation: droop 0.4s ease forwards; transform-origin: center; }
+.animate-twinkle { animation: twinkle 1.6s ease-in-out infinite; }
+.animate-rise { animation: rise 0.35s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-vibrate,
+  .animate-bounce-once,
+  .animate-droop,
+  .animate-twinkle,
+  .animate-rise {
+    animation: none !important;
+  }
+}
