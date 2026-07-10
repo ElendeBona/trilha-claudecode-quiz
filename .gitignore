@@ -42,3 +42,7 @@ next-env.d.ts
 
 # Claude Code — config/skills locais (não versionar)
 /.claude/
+
+# Docs internas — manter locais, fora do repositório público
+/CLAUDE.md
+/prd.md
